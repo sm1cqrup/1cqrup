@@ -6,35 +6,7 @@
 </head>
 <body>
 <h1>Sistem Məlumat Bazası</h1>
-<p>CHANNELS: 24 kanal. BNAME: 154431 baza adı, 78 səhifədə.</p>
-<h2>CHANNELS — yoxlama kanalları</h2>
-<table border="1">
-<tr><th>CID</th><th>CNAME</th><th>CNOTE</th></tr>
-<tr><td>1</td><td>Tam eynilik</td><td>Normallaşdırıldıqdan sonra adların tam eyniliyi yoxlanılır.</td></tr>
-<tr><td>2</td><td>Boşluq və işarə fərqi</td><td>ALFA BETA, ALFA-BETA, ALFABETA kimi variantlar yoxlanılır.</td></tr>
-<tr><td>3</td><td>Birləşdirilmiş adda redaktə</td><td>Boşluq və işarələr çıxarıldıqdan sonra maksimum 2 simvol əlavəsi, silinməsi və dəyişməsi yoxlanılır.</td></tr>
-<tr><td>4</td><td>Sözlərin yerdəyişməsi</td><td>Eyni sözlərin başqa ardıcıllıqda yazılması yoxlanılır.</td></tr>
-<tr><td>5</td><td>Sözlərin qarşılıqlı uyğunluğu</td><td>2–12 söz bir-birinə uyğunlaşdırılır; ümumi redaktə sayı maksimum 2-dir.</td></tr>
-<tr><td>6</td><td>Tam adda redaktə</td><td>Tam yazılışda maksimum 2 simvol əlavəsi, silinməsi və dəyişməsi yoxlanılır.</td></tr>
-<tr><td>7</td><td>Böyük hərf variantı</td><td>Unicode böyük hərf formasına çevrilmiş adlar arasında maksimum 2 redaktə yoxlanılır.</td></tr>
-<tr><td>8</td><td>Qonşu hərflərin yerdəyişməsi</td><td>ALFA → AF LA tipli qonşu simvol yerdəyişmələri, digər redaktələrlə birlikdə maksimum 2 əməliyyat daxilində yoxlanılır.</td></tr>
-<tr><td>9</td><td>Diakritik yazılış variantı</td><td>ə/e, ş/s, ç/c, ö/o, ü/u, ğ/g, ı/i uyğunluqları yoxlanılır.</td></tr>
-<tr><td>10</td><td>Qoşa hərflə yazılış</td><td>ş/sh, ç/ch, ğ/gh, x/kh kimi müəyyən edilmiş çevirmələr yoxlanılır.</td></tr>
-<tr><td>11</td><td>Fərqləndirici söz uyğunluğu</td><td>Ümumi və sahə sözlərindən fərqli olaraq adı fərqləndirən sözlərin uyğunluğu yoxlanılır.</td></tr>
-<tr><td>12</td><td>Üçsimvolluq hissələrin oxşarlığı</td><td>Adların üçsimvolluq hissələri müqayisə edilir; Dice göstəricisi ən azı 0,45 olmalıdır.</td></tr>
-<tr><td>13</td><td>Rəqəm və işarə strukturu</td><td>Hərf hissəsi eyni qaldıqda rəqəm əlavəsi, silinməsi, dəyişməsi və yerləşmə fərqləri araşdırılır.</td></tr>
-<tr><td>14</td><td>Söz sırası və rəqəm dəyişikliyi</td><td>Rəqəmlər maskalanaraq sözlərin yerdəyişməsi ilə rəqəm dəyişməsinin birlikdə olması yoxlanılır.</td></tr>
-<tr><td>15</td><td>Sahə uyğunluğu</td><td>Tapılmış namizədlərin fəaliyyət sahəsi əlaqəsi qiymətləndirilir; ayrıca bütün reyestr üzrə sahə axtarışı aparılmır.</td></tr>
-<tr><td>16</td><td>Hərfin rəqəm və ya işarə ilə əvəzi</td><td>Hərfin yerinə rəqəm və ya işarə yazılması (və əksinə) yoxlanılır: FIRST → F1RST. Cəmi fərq maksimum 2.</td></tr>
-<tr><td>17</td><td>Görünüş oxşarlığı</td><td>Böyük hərfdə 0 = O və 1 = I sayılır (istənilən sayda); qalan fərq maksimum 2: ORACLE → 0R4C1E.</td></tr>
-<tr><td>18</td><td>Transliterasiya</td><td>ş/sh, ç/ch, ğ/gh, x/kh, ə/a, ə/e, ı/i, ö/o, ü/u çevirmələri sayından asılı olmayaraq yoxlanılır; iki adın ortaq Latın yazılışı olmalıdır: ŞƏRUR → SHERUR.</td></tr>
-<tr><td>19</td><td>Yeni söz yaradan hərf əlavəsi</td><td>Əlavə olunan hərf(lər) yeni söz yaradırsa (ALMA → ALMAZ) yeni söz göstərilir; şəkilçidirsə (ALMA → ALMAM) «şəkilçi» yazılır.</td></tr>
-<tr><td>20</td><td>Söz əlavəsi və ya silinməsi</td><td>Baza adına bütöv söz əlavə olunması və ya ondan söz çıxarılması yoxlanılır: NOVA TRADE 96 → YENİ NOVA TRADE 96.</td></tr>
-<tr><td>21</td><td>Tərcümə</td><td>Ad baza adının başqa dildə tərcüməsidirmi yoxlanılır: QIZIL ~ GOLD.</td></tr>
-<tr><td>22</td><td>Qısaltma</td><td>Ad baza adının baş hərflərindən ibarətdirmi yoxlanılır: BAKU MED TRAVEL AGENCY ~ BMTA.</td></tr>
-<tr><td>23</td><td>Fonetik yazılış</td><td>Oxunuşu eyni, yazılışı fərqli adlar yoxlanılır: TRADE ~ TREYD, XAN ~ KHAN.</td></tr>
-<tr><td>24</td><td>Söyüş</td><td>Adda ədəbsiz söz olub-olmadığı yoxlanılır, rəqəm və ya işarə ilə gizlədilmiş formalar daxil; baza adı tələb olunmur.</td></tr>
-</table>
+<p>BNAME: 154431 baza adı, 78 səhifədə.</p>
 <h2>BNAME — baza adları</h2>
 <ul>
 <li><a href="bname-1.html">BNAME səhifə 1: BID 1–2000 (2000 ad)</a></li>
