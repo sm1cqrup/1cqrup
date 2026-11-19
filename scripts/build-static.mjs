@@ -19,3 +19,11 @@ console.log('Node '+process.versions.node+': static build PASS — '+rows+' rows
 
 // Stable alternative addresses for clients retaining earlier negative fetch results.
 for(const name of htmlFiles){const m=/^bname-(\d+)\.html$/.exec(name);if(m)await fs.copyFile(path.join(root,name),path.join(out,'registry-page-'+m[1]+'.html'));}
+
+const agentDirectory=directory.replace(/href=(["'])(?:\.\/)?bname-(\d+)\.html\1/g,(_,quote,page)=>'href='+quote+'registry-page-'+page+'.html'+quote);
+await fs.writeFile(path.join(out,'glist.html'),agentDirectory);
+await fs.writeFile(path.join(out,'registry.html'),agentDirectory);
+const agentLinks=[...agentDirectory.matchAll(/href=["'](registry-page-\d+\.html)["']/g)].map(match=>match[1]);
+if(agentLinks.length!==linkedPages.length)throw Error('REGISTRY_LINK_REWRITE_INCOMPLETE');
+for(const name of agentLinks)await fs.access(path.join(out,name));
+console.log('Verified '+agentLinks.length+' agent-readable registry links.');
