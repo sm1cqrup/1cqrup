@@ -16,3 +16,6 @@ for(const name of linkedPages)await fs.access(path.join(out,name));
 console.log('Published '+htmlFiles.length+' root HTML files; verified '+linkedPages.length+' linked BNAME pages.');
 await fs.cp(path.join(root,'glist'),path.join(out,'glist'),{recursive:true});
 console.log('Node '+process.versions.node+': static build PASS — '+rows+' rows / 31 pages');
+
+// Stable alternative addresses for clients retaining earlier negative fetch results.
+for(const name of htmlFiles){const m=/^bname-(\d+)\.html$/.exec(name);if(m)await fs.copyFile(path.join(root,name),path.join(out,'registry-page-'+m[1]+'.html'));}
