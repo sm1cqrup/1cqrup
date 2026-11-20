@@ -1,1 +1,16 @@
-{"framework":null,"buildCommand":"npm run build","outputDirectory":"public"}
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "functions": {
+    "api/coverage.mjs": {
+      "includeFiles": "public/coverage-20261120-30363e/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/coverage-20261120-30363e/:file",
+      "destination": "/api/coverage?file=:file"
+    }
+  ]
+}
