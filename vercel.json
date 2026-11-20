@@ -1,1 +1,9 @@
-{"framework":null,"buildCommand":"npm run build","outputDirectory":"public"}
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "redirects": [
+    {"source": "/bname-:page(\\d+).html", "destination": "/registry-page-:page.html", "permanent": true},
+    {"source": "/registry.html", "destination": "/glist.html", "permanent": true}
+  ]
+}
