@@ -12,7 +12,7 @@ const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'
 const items=lines.map((line,i)=>{const tab=line.indexOf('\t'),bid=line.slice(0,tab),name=line.slice(tab+1);if(tab<1||Number(bid)!==i+1||!name||/[\r\n\t]/.test(name))throw Error('INVALID_ROW:'+i);return '<li>'+bid+' — '+escape(name)+'</li>';});
 const html='<!DOCTYPE html>\n<html lang="az">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>BNAME — bütün baza adları</title>\n<meta name="description" content="154431 baza adı və BID nömrəsi. Bütün qeydlər bir HTML səhifəsində görünən siyahı kimi yerləşdirilib.">\n<link rel="canonical" href="https://1cqrup.vercel.app/bname.html">\n</head>\n<body>\n<h1>BNAME — bütün baza adları</h1>\n<p>Cəmi 154431 ad. Hər sətirdə BID nömrəsi və bazadakı orijinal ad göstərilir.</p>\n<ul>\n'+items.join('\n')+'\n</ul>\n</body>\n</html>\n';
 await fs.rm(out,{recursive:true,force:true});await fs.mkdir(out,{recursive:true});
-for(const file of ['index.html','google1316b7ceb6313ce6.html'])await fs.copyFile(path.join(root,file),path.join(out,file));
+for(const file of ['index.html','google1316b7ceb6313ce6.html','channels.html'])await fs.copyFile(path.join(root,file),path.join(out,file));
 await fs.writeFile(path.join(out,'bname.html'),html,'utf8');
 await fs.writeFile(path.join(out,'bname.txt'),bytes);
-console.log('Node '+process.versions.node+': 154431 unchanged names; bname.html '+Buffer.byteLength(html)+' bytes, bname.txt '+bytes.length+' bytes; exactly four public files.');
+console.log('Node '+process.versions.node+': 154431 unchanged names; bname.html '+Buffer.byteLength(html)+' bytes, bname.txt '+bytes.length+' bytes; exactly five public files.');

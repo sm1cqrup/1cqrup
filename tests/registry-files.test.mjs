@@ -4,9 +4,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {gunzipSync} from 'node:zlib';
 const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'public');
-test('published directory contains only the two preserved files and the two requested registry files',async()=>{
- assert.deepEqual((await fs.readdir(out)).sort(),['bname.html','bname.txt','google1316b7ceb6313ce6.html','index.html']);
- for(const file of ['index.html','google1316b7ceb6313ce6.html'])assert.deepEqual(await fs.readFile(path.join(out,file)),await fs.readFile(path.join(root,file)));
+test('published directory preserves the index, verification and separate rules alongside both registry formats',async()=>{
+ assert.deepEqual((await fs.readdir(out)).sort(),['bname.html','bname.txt','channels.html','google1316b7ceb6313ce6.html','index.html']);
+ for(const file of ['index.html','google1316b7ceb6313ce6.html','channels.html'])assert.deepEqual(await fs.readFile(path.join(out,file)),await fs.readFile(path.join(root,file)));
 });
 test('HTML is static standard markup with one visible ul and all original BID/name values',async()=>{
  const html=await fs.readFile(path.join(out,'bname.html'),'utf8'),source=gunzipSync(await fs.readFile(path.join(root,'data/bname.tsv.gz'))).toString('utf8');
