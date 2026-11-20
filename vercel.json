@@ -7,10 +7,13 @@
       "includeFiles": "public/coverage-20261120-30363e/**"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/coverage-20261120-30363e/:file",
-      "destination": "/api/coverage?file=:file"
+      "src": "/coverage-20261120-30363e/([^/]+)",
+      "dest": "/api/coverage?file=$1"
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
